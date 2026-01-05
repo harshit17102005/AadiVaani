@@ -183,7 +183,7 @@ export default function AadiVaani() {
         {/* NAV */}
         <div className="nav">
           <div className="logo" onClick={() => setActiveTab("home")} style={{ cursor: 'pointer' }}>
-            Aadi-Vaani
+            <img src="/logo.png" alt="Aadi-Vaani" style={{ height: '50px', objectFit: 'contain' }} />
           </div>
           <div className="nav-links">
             <span className={`nav-item ${activeTab === "home" ? "active" : ""}`} onClick={() => setActiveTab("home")}>Home</span>
@@ -268,7 +268,7 @@ export default function AadiVaani() {
             <PageTransition key="about">
               <div className="info-container">
                 <h1 className="title">About Aadi-Vaani</h1>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', width: '100%', maxWidth: '800px' }}>
+                <div className="about-grid">
 
                   <div className="info-card">
                     <h3>🇮🇳 Our Mission</h3>

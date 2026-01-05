@@ -391,3 +391,154 @@ textarea::placeholder {
   color: white;
   transform: translateY(-2px);
 }
+
+/* About Grid */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* ------------------------------------------------ */
+/* MOBILE RESPONSIVENESS */
+/* ------------------------------------------------ */
+
+/* ------------------------------------------------ */
+/* MOBILE RESPONSIVENESS */
+/* ------------------------------------------------ */
+
+@media (max-width: 768px) {
+
+  /* Layout Adjustments */
+  .page {
+    padding: 15px;
+    /* Slightly more edge padding */
+    height: auto;
+    /* Allow full height */
+    min-height: 100vh;
+    align-items: flex-start;
+  }
+
+  .glass-card {
+    padding: 20px 15px;
+    /* Tighter internal padding */
+    border-radius: 20px;
+    margin-top: 10px;
+    width: 100%;
+    /* Ensure it doesn't overflow */
+  }
+
+  /* Navigation */
+  .nav {
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+
+  .logo {
+    font-size: 24px;
+    /* Slightly smaller logo */
+  }
+
+  .nav-links {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav-item {
+    font-size: 14px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    /* Make buttons visible without hover */
+    border-radius: 15px;
+  }
+
+  /* Hero Section */
+  .title {
+    font-size: 2rem;
+    /* Avoid wrapping on small phones */
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    padding: 0 10px;
+  }
+
+  /* Translator Box */
+  .translator-box {
+    gap: 20px;
+  }
+
+  .lang-card {
+    padding: 15px;
+  }
+
+  .card-header {
+    flex-wrap: nowrap;
+    /* Keep copy button next to select */
+    gap: 10px;
+  }
+
+  .lang-select {
+    flex-grow: 1;
+    width: 100%;
+    min-width: 0;
+    /* flexbox fix */
+  }
+
+  textarea {
+    height: 120px;
+    /* Reduced height to fit screen better */
+    font-size: 16px;
+  }
+
+  /* Buttons */
+  .action-area {
+    margin: 25px 0;
+  }
+
+  .translate-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  .swap-container {
+    transform: rotate(90deg);
+    margin: -10px 0;
+    /* Pull cards closer */
+    z-index: 5;
+  }
+
+  /* About / Contact Grid */
+  .about-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .info-card {
+    width: 100%;
+    /* Ensure card doesn't overflow container */
+  }
+
+  /* Features */
+  .features {
+    gap: 8px;
+    flex-direction: column;
+    /* Stack features on very small screens */
+    width: 100%;
+  }
+
+  .feature-pill {
+    font-size: 13px;
+    padding: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+}
