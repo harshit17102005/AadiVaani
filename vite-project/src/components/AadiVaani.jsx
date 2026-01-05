@@ -44,13 +44,24 @@ const LANGUAGES = [
   { code: "sa", name: "Sanskrit (संस्कृत)", voice: "sa-IN" },
   { code: "sd", name: "Sindhi (सिन्धी)", voice: "sd-IN" },
   { code: "kok", name: "Konkani (कोंकणी)", voice: "kok-IN" },
-  { code: "mni", name: "Manipuri (মৈতৈলোন্)", voice: "mni-IN" },
+  { code: "mni", name: "Manipuri (Meiteilon)", voice: "mni-IN" },
   { code: "doi", name: "Dogri (डोगरी)", voice: "doi-IN" },
   { code: "brx", name: "Bodo (बड़ो)", voice: "brx-IN" },
   { code: "mai", name: "Maithili (मैथिली)", voice: "mai-IN" },
-  { code: "sat", name: "Santali (ᱥᱟᱱᱛᱟᱲᱤ)", voice: "sat-IN" }, // Often unsupported in voice
+  { code: "sat", name: "Santali (ᱥᱟᱱᱛᱟᱲᱤ)", voice: "sat-IN" },
   { code: "ks", name: "Kashmiri (कश्मीरी)", voice: "ks-IN" },
-  { code: "lus", name: "Mizo (Mizo ṭawng)", voice: "lus-IN" }, // Limited
+  { code: "lus", name: "Mizo (Mizo ṭawng)", voice: "lus-IN" },
+
+  // Expanded Regional & Tribal Support (2024+)
+  { code: "awa", name: "Awadhi (अवधी)", voice: "hi-IN" },
+  { code: "bho", name: "Bhojpuri (भोजपुरी)", voice: "hi-IN" },
+  { code: "hne", name: "Chhatisgarhi (छत्तीसगढ़ी)", voice: "hi-IN" },
+  { code: "kha", name: "Khasi (Ka Ktien Khasi)", voice: "en-IN" },
+  { code: "trp", name: "Kokborok (ककबरक)", voice: "bn-IN" },
+  { code: "mag", name: "Magahi (मगही)", voice: "hi-IN" },
+  { code: "mwr", name: "Marwari (मारवाड़ी)", voice: "hi-IN" },
+  { code: "tcy", name: "Tulu (ತುಳು)", voice: "kn-IN" },
+
   // Additional Global
   { code: "es", name: "Spanish", voice: "es-ES" },
   { code: "fr", name: "French", voice: "fr-FR" },
@@ -89,8 +100,8 @@ export default function AadiVaani() {
     if (!input) return;
     setLoading(true);
     try {
-      // Use local backend proxy to avoid CORS and failures
-      const response = await fetch('http://localhost:5000/api/translate', {
+      // Use relative path - Vite proxy handles local, Vercel handles prod
+      const response = await fetch('/api/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -153,7 +164,8 @@ export default function AadiVaani() {
     e.target.querySelector('button[type="submit"]').innerText = "Sending...";
 
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      // Use relative path - Vite proxy handles local, Vercel handles prod
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(contactForm),
